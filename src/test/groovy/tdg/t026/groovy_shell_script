@@ -1,0 +1,19 @@
+#!/usr/bin/env groovy
+
+def cli = new CliBuilder(usage: 'groovy_shell_script [option]')
+cli.with {
+    e longOpt: 'example', 'print example message'
+}
+
+def options = cli.parse(args)
+if (!options) {
+    return
+}
+
+if (options.e) {
+    println "Hello! this is message from example"
+    return
+}
+
+cli.usage()
+return
